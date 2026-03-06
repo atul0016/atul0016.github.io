@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advanced Smart Capture — Unlock Premium</title>
-  <!-- LIVE MODE: Replace YOUR_ASC_PAYPAL_CLIENT_ID with your actual PayPal Live Client ID -->
-  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_ASC_PAYPAL_CLIENT_ID&currency=USD"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AcJrVp8nuUrjoL3uevSOC_bcOoqPgxsGg8zA28z2NhJXY07FAmljoLoiUO3PyPdZUjxTB5l84AYUavCV&currency=USD"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -84,7 +83,7 @@
   <div class="card">
     <div class="card-header">
       <h1>&#x1F4F8; Advanced Smart Capture</h1>
-      <p>Premium — One-time payment &bull; Lifetime access</p>
+      <p>Premium &mdash; One-time payment &bull; Lifetime access</p>
     </div>
 
     <div class="card-body" id="paymentSection">
@@ -117,8 +116,7 @@
   </div>
 
   <script>
-    // Replace with your deployed Netlify function URL after setting up asc-backend
-    const VERIFY_URL = 'https://YOUR_ASC_NETLIFY_SITE.netlify.app/.netlify/functions/verify';
+    const VERIFY_URL = 'https://asc-verify.netlify.app/.netlify/functions/verify';
 
     paypal.Buttons({
       style: {
@@ -152,7 +150,6 @@
           if (result.verified) {
             document.getElementById('paymentSection').style.display = 'none';
             document.getElementById('successSection').style.display = 'block';
-            // Signal extension via URL hash
             window.location.hash = '#payment-success';
           } else {
             alert('Payment could not be verified. Please contact support.');
